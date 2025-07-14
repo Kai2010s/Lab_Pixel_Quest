@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Geocontroller : MonoBehaviour
 {
@@ -29,7 +30,14 @@ public class Geocontroller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hit");
+        switch (collision.tag)
+        {
+            case "Death": {
+                    string thislevel=SceneManager.GetActiveScene().name;
+                    SceneManager.LoadScene(thislevel);
+                    break; }
+        }
+            
     }
 
 }
