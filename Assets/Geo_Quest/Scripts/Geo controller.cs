@@ -14,13 +14,15 @@ public class Geocontroller : MonoBehaviour
     // Start is called before the first frame update
     public int speed = 5;
     void Start()
+ 
     {
         rb = GetComponent<Rigidbody2D>();
         string goat = "somewhere";
         Debug.Log("Hello world");
         Debug.Log(Bye + goat);
-        int num2 = 2;
+   
     }
+
 
     // Update is called once per frame
     void Update()
