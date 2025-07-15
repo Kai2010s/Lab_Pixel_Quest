@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Geocontroller : MonoBehaviour
 {
+    public string nextlevel = "Scene 2";
     string Bye = "How are you?";
     int number1 = 1;
     private Rigidbody2D rb;
@@ -36,7 +37,13 @@ public class Geocontroller : MonoBehaviour
                     string thislevel=SceneManager.GetActiveScene().name;
                     SceneManager.LoadScene(thislevel);
                     break; }
-        }
+            case "Finish":
+                {
+                    
+                    SceneManager.LoadScene(nextlevel);
+                    break;
+                }
+    }
             
     }
 
