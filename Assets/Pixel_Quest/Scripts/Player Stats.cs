@@ -10,7 +10,8 @@ public class PlayerStats : MonoBehaviour
     {
      //  if()
     }
-
+    public int coincount = 0;
+    public int playerhealth = 3;
     // Update is called once per frame
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +30,17 @@ public class PlayerStats : MonoBehaviour
                     SceneManager.LoadScene(nextlevel);
                     break;
                 }
-
+            case "Coin":
+                { coincount++;
+                    Destroy(collision.gameObject);
+                    break;
+                }
+            case "health":
+                 {
+                    coincount++;
+                    Destroy(collision.gameObject);
+                    break;
+                }
         }
     }
 }
