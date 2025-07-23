@@ -1492,6 +1492,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1093978262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093978263}
+  m_Layer: 0
+  m_Name: Respawn point
+  m_TagString: Respawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1093978263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093978262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.730983, y: 56.186638, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1229510744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,6 +2410,7 @@ MonoBehaviour:
   nextlevel: Scene 2
   coincount: 0
   playerhealth: 3
+  Respawnpoint: {fileID: 1093978263}
 --- !u!114 &1622845153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3583,3 +3615,4 @@ SceneRoots:
   - {fileID: 2708728766415805722}
   - {fileID: 530360773}
   - {fileID: 2016719086}
+  - {fileID: 1093978263}

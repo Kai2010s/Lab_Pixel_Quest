@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
-    public string nextlevel = "Scene 2";
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -13,30 +13,50 @@ public class PlayerStats : MonoBehaviour
     public int coincount = 0;
     public int playerhealth = 3;
     // Update is called once per frame
-
+    public Transform Respawnpoint;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
         {
-            case "Death":
+            case "Respawn":
+                { Respawnpoint.position = collision.transform.Find("Point").position; break; }
+            case "Health":
                 {
-                    string thislevel = SceneManager.GetActiveScene().name;
-                    SceneManager.LoadScene(thislevel);
+                    if (playerhealth < 3)
+                    {
+                        Destroy(collision.gameObject);
+                        playerhealth++;
+                    }
                     break;
                 }
+            case "Death":
+                {
+                    playerhealth--;
+                    {
+                        if (playerhealth <= 0)
+                        {
+                            string thislevel = SceneManager.GetActiveScene().name;
+                            SceneManager.LoadScene(thislevel);
+                        }
+                        else
+                        {
+                            transform.position = Respawnpoint.position;
+                        }
+
+
+                        break;
+                    }
+                }
+
             case "Finish":
                 {
 
+                    string nextlevel = collision.GetComponent<LevelGoal>().nextlevel;
                     SceneManager.LoadScene(nextlevel);
                     break;
                 }
             case "Coin":
-                { coincount++;
-                    Destroy(collision.gameObject);
-                    break;
-                }
-            case "health":
-                 {
+                {
                     coincount++;
                     Destroy(collision.gameObject);
                     break;
