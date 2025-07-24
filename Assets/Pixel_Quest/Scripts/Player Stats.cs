@@ -5,15 +5,20 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
    
-    // Start is called before the first frame update
-    void Start()
-    {
-     //  if()
-    }
     public int coincount = 0;
     public int playerhealth = 3;
     // Update is called once per frame
     public Transform Respawnpoint;
+    public PlayerUIcontroller UIcontroller;
+    public int maxHealth = 3;
+    public int health = 3;
+// Start is called before the first frame update
+    void Start()
+    {
+      UIcontroller = GetComponent <PlayerUIcontroller>();
+        UIcontroller.UpdateHealth(health, maxHealth);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
@@ -32,6 +37,7 @@ public class PlayerStats : MonoBehaviour
             case "Death":
                 {
                     playerhealth--;
+                    UIcontroller.UpdateHealth(playerhealth, maxHealth);
                     {
                         if (playerhealth <= 0)
                         {
