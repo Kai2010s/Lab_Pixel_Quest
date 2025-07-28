@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
    
     public int coincount = 0;
+    private int coinsInLevel = 0;
     public int playerhealth = 3;
     // Update is called once per frame
     public Transform Respawnpoint;
@@ -15,8 +16,11 @@ public class PlayerStats : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
+        coinsInLevel = GameObject.Find("Coins").transform.childCount;
       UIcontroller = GetComponent <PlayerUIcontroller>();
+        UIcontroller.UIStart();
         UIcontroller.UpdateHealth(health, maxHealth);
+        UIcontroller.UpdateCoin(coincount + "/" + coinsInLevel);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +35,7 @@ public class PlayerStats : MonoBehaviour
                     {
                         Destroy(collision.gameObject);
                         playerhealth++;
+                        UIcontroller.UpdateHealth(playerhealth, maxHealth);
                     }
                     break;
                 }
@@ -64,6 +69,7 @@ public class PlayerStats : MonoBehaviour
             case "Coin":
                 {
                     coincount++;
+                    UIcontroller.UpdateCoin(coincount + "/" + coinsInLevel);
                     Destroy(collision.gameObject);
                     break;
                 }

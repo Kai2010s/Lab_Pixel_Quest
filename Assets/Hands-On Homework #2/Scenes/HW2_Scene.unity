@@ -750,6 +750,7 @@ MonoBehaviour:
   prefab: {fileID: 7854287240566403132, guid: 1ea6bd9350d50894899d6d0e9622592e, type: 3}
   bulletTrash: {fileID: 1629114352}
   bulletSpawn: {fileID: 1442179157}
+  prefab2: {fileID: 7854287240566403132, guid: 5ea22da1d2309304ca5b10e39dd39d1b, type: 3}
 --- !u!1 &396652744
 GameObject:
   m_ObjectHideFlags: 0
